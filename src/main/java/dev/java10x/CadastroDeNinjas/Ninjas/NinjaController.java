@@ -1,4 +1,4 @@
 package dev.java10x.CadastroDeNinjas;
 
-public class Controller {
+public class NinjaController {
 }
