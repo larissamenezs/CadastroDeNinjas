@@ -19,10 +19,10 @@ public class NinjaController {
         return "Essa é minha primeira mensagem nessa rota";
     }
 
-    //Adicionar ninja (CREATE)
+    //Adicionar ninja (CREATE) [serialização ao contrário, vindo em json e indo pro bd]
     @PostMapping("/criar")
-    public String criarNinja() {
-        return "Ninja criado";
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninja) {
+        return ninjaService.criarNinja(ninja);
     }
 
     //Mostrar todos os ninjas (READ)
@@ -32,9 +32,9 @@ public class NinjaController {
     }
 
     //Mostrar ninja por id (READ)
-    @GetMapping("/listarID")
-    public String mostrarTodosOsNinjasPorId() {
-        return "Mostrar ninja por ID";
+    @GetMapping("/listar/{id}")
+    public NinjaModel listarNinjasPorId(@PathVariable Long id) {
+        return ninjaService.listarNinjasPorId(id);
     }
 
     //Alterar dados dos ninjas (UPDATE)
